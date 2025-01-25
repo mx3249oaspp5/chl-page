@@ -1,5 +1,5 @@
 performance.mark('ct-st-start');
-var zhi1, zhi2, zhi3, zhi4, zhi5, zhi6, zhi7, zhi8, zhi9, zhi10,zhi11
+var zhi1, zhi2, zhi3, zhi4, zhi5, zhi6, zhi7, zhi8, zhi9, zhi10, zhi11
 var aaa = window.document;
 var _frame;
 _frame = aaa.createElement('iframe');
@@ -31,16 +31,26 @@ function other1() {
         r.push(k.getParameter(m.UNMASKED_RENDERER_WEBGL))
         return r;
     }
-    zhi2 = e();
+    try {
+        zhi2 = e();
+    } catch {
+        zhi2 = 'e';
+    }
+
 
 
     zhi3 = []
-    zhi3.push(window.performance.navigation.toJSON())
-    zhi3.push({
-        10: window.performance.memory.jsHeapSizeLimit,
-        20: window.performance.memory.totalJSHeapSize,
-        30: window.performance.memory.usedJSHeapSize,
-    })
+    try {
+        zhi3.push(window.performance.navigation.toJSON())
+        zhi3.push({
+            10: window.performance.memory.jsHeapSizeLimit,
+            20: window.performance.memory.totalJSHeapSize,
+            30: window.performance.memory.usedJSHeapSize,
+        })
+    } catch (e) {
+        zhi3.push(e)
+    }
+
 
     var bbc = window.performance.getEntries ? window.performance.getEntries() : window.performance.webkitGetEntries()
 
@@ -81,7 +91,12 @@ function other1() {
             var s = n[r]; r < n.length && q(l, s); var t = m[r]; o[t[0]](l, t) && l.fill(), l.shadowBlur = 0
         } return [j.toDataURL(), j.toDataURL()]
     }
-    zhi4 = f();
+    try{
+        zhi4 = f();
+    }catch(e){
+        zhi4 = e
+    }
+    
 
     function v(c, d) {
         return (
@@ -174,17 +189,17 @@ function other1() {
     }
 
 
-    var E, f
-    f = window['document']['createElement']('iframe');
-    f['style'] = 'display: none';
-    f['tabIndex'] = '-1';
-    window['document']['body']['appendChild'](f);
-    E = f['contentWindow'];
+    var __E, fff
+    fff = window['document']['createElement']('iframe');
+    fff['style'] = 'display: none';
+    fff['tabIndex'] = '-1';
+    window['document']['body']['appendChild'](fff);
+    __E = fff['contentWindow'];
     zhi5 = {};
-    zhi5 = MmUxb5(E, E, '', zhi5);
-    zhi5 = MmUxb5(E, E['clientInformation'] || E['navigator'], 'n.', zhi5);
-    zhi5 = MmUxb5(E, f['contentDocument'], 'd.', zhi5);
-    window['document']['body']['removeChild'](f);
+    zhi5 = MmUxb5(__E, __E, '', zhi5);
+    zhi5 = MmUxb5(__E, __E['clientInformation'] || __E['navigator'], 'n.', zhi5);
+    zhi5 = MmUxb5(__E, fff['contentDocument'], 'd.', zhi5);
+    window['document']['body']['removeChild'](fff);
 
     var sadasdas = [
         "architecture",
@@ -196,7 +211,7 @@ function other1() {
         "uaFullVersion",
         "wow64"
     ]
-
+    
     navigator.userAgentData.getHighEntropyValues(sadasdas).then(data => {
         zhi6 = JSON.stringify(data)
         ffa()
@@ -231,14 +246,14 @@ function ffa() {
         30: zhi3,
         40: zhi4,
         50: zhi5,
-        60: [zhi6,zhi7, zhi8, zhi9, zhi10, zhi11]
+        60: [zhi6, zhi7, zhi8, zhi9, zhi10, zhi11]
     }
     console.log(fufuc)
     fufuc = JSON.stringify(fufuc)
-    
+
     fufud = encrypt(fufuc)
     fufuc = '';
-    
+
 
     setTimeout(() => {
         fetch('/cdn-cgi-page/opt/', {
